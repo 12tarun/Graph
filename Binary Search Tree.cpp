@@ -1,4 +1,6 @@
 #include<bits/stdc++.h>
+#include <tr1/unordered_map>
+using namespace std::tr1;
 using namespace std;
 
 struct node
@@ -72,7 +74,54 @@ void LevelOrder(node* root)
 		if(current->right != NULL) Q.push(current->right);
 		Q.pop();
 	}
-}                              
+}
+
+void TopView(struct node *root)
+{
+	if (root == NULL)
+		return;
+
+	unordered_map<int, int> m;
+	queue<pair<node*, int> > q;
+	int min = 0;
+	int max = 0;
+	q.push(make_pair(root, 0));
+	
+	while (!q.empty())
+	{
+		pair<node*, int> p = q.front();
+		node *n = p.first;
+		int val = p.second;
+		q.pop();
+		
+		if (m.find(val)==m.end())
+		{
+			m[val] = n->data;
+			if(val<min)
+            {
+                min = val;
+            }
+            if(val>max)
+            {
+                max = val;
+            }
+			
+		}
+		
+		if (n->left != NULL)
+		{
+			q.push(make_pair(n->left, val-1));
+		}
+		if (n->right != NULL)
+		{
+			q.push(make_pair(n->right, val+1));
+		}
+	}
+	for(int i=min;i<=max;i++)
+    {
+    	cout<<m[i]<<" ";
+	}
+}                           
 
 int main()
 {
@@ -98,5 +147,7 @@ int main()
 	cout<<h<<"\n";
 	cout<<"Level-order traversal of the tree: ";
 	LevelOrder(root);
+	cout<<"\nTop view of the tree: ";
+	TopView(root);
 	return 0;
 }
