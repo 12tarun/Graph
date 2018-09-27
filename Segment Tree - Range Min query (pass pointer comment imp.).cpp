@@ -25,7 +25,7 @@ int main()
             {
                 swap(start,e);
             }
-            cout<<RMQ(segTree,N,start,e)<<" ";
+            cout<<RMQ(segTree,N,start+1,e+1)<<" ";
         }
         cout<<endl;
     } 
@@ -73,7 +73,7 @@ int findMin(int st[],int ss,int se,int qs,int qe,int pos)
  
 int RMQ(int st[], int n, int a, int b)
 {
-    int ss = 0;
-    int se = n-1;
+    int ss = 1;
+    int se = n;
     return findMin(st,ss,se,a,b,1);
 } 
