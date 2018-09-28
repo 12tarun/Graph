@@ -96,7 +96,7 @@ int main()
 		g.addEdge(u,v,wt);
 	}
 	cout << "Edges of MST are \n";
-    int mst_wt = g.kruskalMST();
-    cout << "\nWeight of MST is " << mst_wt;		
+    	int mst_wt = g.kruskalMST();
+    	cout << "\nWeight of MST is " << mst_wt;		
 	return 0;
 }
