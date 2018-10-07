@@ -134,8 +134,29 @@ int main()
         cin>>u>>v>>wt;
         g.addEdge(u,v,wt);
     }
+<<<<<<< HEAD
   //  cout << "Edges of MST are \n";
         int mst_wt = g.kruskalMST();
         cout << mst_wt <<"\n";        
     return 0;
+=======
+    return mst_wt;
+}
+
+int main()
+{
+	int V, E;
+	cin>>V>>E;
+	Graph g(V,E);
+	for(int i=0;i<E;i++)
+	{
+		int u, v, wt;
+		cin>>u>>v>>wt;
+		g.addEdge(u,v,wt);
+	}
+	cout << "Edges of MST are \n";
+    	int mst_wt = g.kruskalMST();
+    	cout << "\nWeight of MST is " << mst_wt;		
+	return 0;
+>>>>>>> 1da3755451ab96a21ac380c0a1131465a3b4c668
 }
